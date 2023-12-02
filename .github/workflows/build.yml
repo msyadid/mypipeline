@@ -1,17 +1,30 @@
-name: Build-Test-Deploy
+name: Build-Store-DeployNonProd-Testing
 
 on:
   push:
     branches:
-      - main
+      - UAT
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
 
-    steps:
+jobs: #job will running parallely
+  build: #this is job name, can change it
+    runs-on: ubuntu-latest #this is node agent
+
+    steps: #steps will run sequentially
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout
+
+      - name: Build package
+        run: echo "Building package"
+        
+      - name: Store
+        run: echo "Store into artifactory"
+
+      - name: Deploy
+        run: echo "Deploy to non prod environment"
+
+      - name: Testing
+        run: echo "Running functional testing"
 
   #      - name: Set up Node.js
   #        uses: actions/setup-node@v3
