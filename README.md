@@ -1,4 +1,4 @@
 # mypipeline
-yoyo
-coba run pipeline
-testing
+Reference:
+- location pipeline => .github/workflows/build.yml or .yaml
+- for checking github action pipeline => https://github.com/rhysd/actionlint

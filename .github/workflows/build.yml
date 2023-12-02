@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build-Test-Deploy
 
 on:
   push:
@@ -26,9 +26,16 @@ jobs:
 
   #- name: Test
   # run: npm test
-  print:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print message
-        run:: echo "Hello this my pipeline"
+      - name: testing
+        run: echo "Hello there, I am doing testing here!!!"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: deploy
+        run: echo "Deployment successfully"
