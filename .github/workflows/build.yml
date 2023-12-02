@@ -12,7 +12,7 @@ jobs: #job will running parallely
 
     steps: #steps will run sequentially
       - name: Checkout Repository
-        uses: actions/checkout
+        uses: actions/checkout@v2
 
       - name: Build package
         run: echo "Building package"
