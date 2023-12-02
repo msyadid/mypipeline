@@ -1,9 +1,9 @@
 name: Build-Store-DeployNonProd-Testing
 
 on:
-  push:
-    branches:
-      - UAT
+  #push:
+    #branches:
+      #- UAT
 
   workflow_dispatch:
     inputs:
