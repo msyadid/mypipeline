@@ -11,10 +11,4 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-  print:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: print message
         run: echo "Hello this my pipeline"
