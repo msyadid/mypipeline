@@ -5,7 +5,11 @@ on:
     branches:
       - UAT
 
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Enter a message'
+        required: true
 
 
 jobs: #job will running parallely
@@ -17,7 +21,7 @@ jobs: #job will running parallely
         uses: actions/checkout@v2
 
       - name: Build package
-        run: echo "Building package"
+        run: echo "Building package ${{ github.event.inputs.message }}"
         
       - name: Store
         run: echo "Store into artifactory"
