@@ -1,17 +1,36 @@
-name: Build-Test-Deploy
+name: Build-Store-DeployNonProd-Testing
 
 on:
   push:
     branches:
-      - main
+      - UAT
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Enter a message'
+        required: true
 
-    steps:
+
+jobs: #job will running parallely
+  build: #this is job name, can change it
+    runs-on: ubuntu-latest #this is node agent
+
+    steps: #steps will run sequentially
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: Build package
+        run: echo "Building package ${{ github.event.inputs.message }}"
+        
+      - name: Store
+        run: echo "Store into artifactory"
+
+      - name: Deploy
+        run: echo "Deploy to non prod environment"
+
+      - name: Testing
+        run: echo "Running functional testing"
 
   #      - name: Set up Node.js
   #        uses: actions/setup-node@v3
@@ -26,6 +45,7 @@ jobs:
 
   #- name: Test
   # run: npm test
+  #tse
   test:
     runs-on: ubuntu-latest
 
